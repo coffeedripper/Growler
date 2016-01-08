@@ -5,6 +5,7 @@ enable :sessions
 
 before do
 	session[:growls] ||= []
+	session[:name] ||= []
 end
 
 # Routes
@@ -20,13 +21,27 @@ end
 
 get '/growls' do
 	@growls = session[:growls]
-	@growls.reverse!
 	erb :growls
 end
 
 post '/add' do
+	max = 20
+	name = params[:user_name]
 	growl = params[:new_growl]
-	session[:growls].push(growl)
 	
-	erb :add #question? redirect or not?
+	if(growl.length > max)
+		@msg = "You can't submit a value greater than #{max} characters."
+		erb :add
+	 else
+	 	session[:name].push(name)
+		session[:growls].push(growl)
+		redirect '/add'
+	end
 end
+
+get '/restart' do
+	session.clear
+	redirect '/growls'
+end
+
+

@@ -1,9 +1,13 @@
 <form action="/add" method="post">
+	<label>Enter Name:</label>
+	<input type="text" name="user_name" id="user_name">
 	
-	<input type="text" name="new_growl">
-	<input type="submit" value="Add Growl">
+	<label>Enter Growl:</label>
+	<input type="text" name="new_growl" id="text_box">
+	<input type="submit" value="Add Growl" id="submit_btn">
 	
 </form>
 
-<a href='/'>Take me home</a><br />
+<a href='/'>Take me home</a>
 <a href='/growls'>Show My Growls</a>
+<p><%= @msg %></p>
