@@ -1,0 +1,9 @@
+<!-- #will loop through session[:growl] array to populate a unordered list with our growls. -->
+<ul>
+<% @growls.each do |growl| %>
+	<li><%= growl %></li>
+<% end %>
+</ul>
+
+<a href='/'>Take me home</a><br />
+<a href='/add'>Add a new growl</a>
