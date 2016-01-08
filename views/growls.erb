@@ -1,9 +1,13 @@
 <!-- #will loop through session[:growl] array to populate a unordered list with our growls. -->
-<ul>
-<% @growls.each do |growl| %>
+<img src="wampa.jpeg"></img>
+<ol>
+<% @growls.reverse_each do |growl| %>
 	<li><%= growl %></li>
 <% end %>
-</ul>
+</ol>
 
-<a href='/'>Take me home</a><br />
-<a href='/add'>Add a new growl</a>
+<div id="growl_nav">
+	<a href='/restart'>Clear Growls</a>
+	<a href='/'>Take me home</a>
+	<a href='/add'>Add a new growl</a>
+<div>
